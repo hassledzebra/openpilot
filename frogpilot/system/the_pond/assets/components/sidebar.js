@@ -88,7 +88,7 @@ export function Sidebar() {
     <div id="sidebar" class="sidebar" role="navigation" aria-label="Main">
       <div>
         <div class="title">
-          <img class="logo" src="/assets/images/main_logo.png" alt="FrogPilot logo" />
+          <img class="logo" src="/assets/images/main_logo.png" alt="HanPilot logo" />
           <div class="title_text sidebar_header">
             <p>The Pond</p>
             <a href="https://github.com/Aidenir" target="_blank" rel="noopener noreferrer">by&nbsp;Aidenir</a>

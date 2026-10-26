@@ -126,7 +126,7 @@ export function ToggleControl () {
     </div>
     ${() => state.showResetDefaultModal ? Modal({
         title: "Reset Toggles",
-        message: "Are you sure you want to reset all toggles to their default FrogPilot values?",
+        message: "Are you sure you want to reset all toggles to their default HanPilot values?",
         onConfirm: resetTogglesToDefault,
         onCancel: () => { state.showResetDefaultModal = false; },
         confirmText: "Reset to Default"

@@ -140,9 +140,9 @@ STOCK_OPENPILOT_TOGGLES = (
 
 SOFTWARE_TOGGLES = (
   ToggleDefinition(
-    title=("Automatically Update FrogPilot"),
+    title=("Automatically Update HanPilot"),
     param="AutomaticUpdates",
-    description=("FrogPilot will automatically update itself and its assets when you are offroad with an active internet connection."),
+    description=("HanPilot will automatically update itself and its assets when you are offroad with an active internet connection."),
     tuning_level=0,
   ),
 )
@@ -256,9 +256,9 @@ ALERTS_AND_SOUNDS_TOGGLES = (
     value_map={0: "Muted", 101: "Auto"},
   ),
   ToggleDefinition(
-    title=("FrogPilot Alerts"),
+    title=("HanPilot Alerts"),
     param="CustomAlerts",
-    description=("<b>Optional FrogPilot alerts</b> that highlight driving events in a more noticeable way."),
+    description=("<b>Optional HanPilot alerts</b> that highlight driving events in a more noticeable way."),
     icon="../../../frogpilot/assets/toggle_icons/icon_green_light.png",
     toggle_type=ToggleType.MANAGE,
     tuning_level=0,
@@ -1998,7 +1998,7 @@ VEHICLE_SETTINGS_TOGGLES = (
     param="GMToggles",
     button_labels=["MANAGE"],
     car_params=["gm_brand"],
-    description=("<b>FrogPilot features for General Motors vehicles.</b>"),
+    description=("<b>HanPilot features for General Motors vehicles.</b>"),
     toggle_type=ToggleType.BUTTON,
     tuning_level=0,
   ),
@@ -2031,7 +2031,7 @@ VEHICLE_SETTINGS_TOGGLES = (
     param="HKGToggles",
     button_labels=["MANAGE"],
     car_params=["hyundai_brand"],
-    description=("<b>FrogPilot features for Genesis, Hyundai, and Kia vehicles.</b>"),
+    description=("<b>HanPilot features for Genesis, Hyundai, and Kia vehicles.</b>"),
     toggle_type=ToggleType.BUTTON,
     tuning_level=0,
   ),
@@ -2057,7 +2057,7 @@ VEHICLE_SETTINGS_TOGGLES = (
     param="HondaToggles",
     button_labels=["MANAGE"],
     car_params=["honda_brand"],
-    description=("<b>FrogPilot features for Acura and Honda vehicles.</b>"),
+    description=("<b>HanPilot features for Acura and Honda vehicles.</b>"),
     toggle_type=ToggleType.BUTTON,
     tuning_level=0,
   ),
@@ -2090,7 +2090,7 @@ VEHICLE_SETTINGS_TOGGLES = (
     param="SubaruToggles",
     button_labels=["MANAGE"],
     car_params=["subaru_brand"],
-    description=("<b>FrogPilot features for Subaru vehicles.</b>"),
+    description=("<b>HanPilot features for Subaru vehicles.</b>"),
     toggle_type=ToggleType.BUTTON,
     tuning_level=0,
   ),
@@ -2107,7 +2107,7 @@ VEHICLE_SETTINGS_TOGGLES = (
     param="ToyotaToggles",
     button_labels=["MANAGE"],
     car_params=["toyota_brand"],
-    description=("<b>FrogPilot features for Lexus and Toyota vehicles.</b>"),
+    description=("<b>HanPilot features for Lexus and Toyota vehicles.</b>"),
     toggle_type=ToggleType.BUTTON,
     tuning_level=0,
   ),
@@ -2461,7 +2461,7 @@ APPEARANCE_TOGGLES = (
   ToggleDefinition(
     title=("Driving Screen Widgets"),
     param="CustomUI",
-    description=("<b>Custom FrogPilot widgets</b> for the driving screen."),
+    description=("<b>Custom HanPilot widgets</b> for the driving screen."),
     icon="../assets/icons/calibration.png",
     toggle_type=ToggleType.MANAGE,
     tuning_level=1,
@@ -2782,7 +2782,7 @@ UTILITIES_TOGGLES = (
   ToggleDefinition(
     title=("Debug Mode"),
     param="DebugMode",
-    description=("<b>Use all of FrogPilot's developer metrics on your next drive</b> to diagnose issues and improve bug reports."),
+    description=("<b>Use all of HanPilot's developer metrics on your next drive</b> to diagnose issues and improve bug reports."),
     tuning_level=0,
   ),
   ToggleDefinition(
