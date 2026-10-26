@@ -125,7 +125,7 @@ export function Home() {
         <div class="drivingStats">
           ${DriveStat("All Time", driveStats?.all, state.unit)}
           ${DriveStat("Past Week", driveStats?.week, state.unit)}
-          ${DriveStat("FrogPilot", driveStats?.frogpilot, state.unit)}
+          ${DriveStat("HanPilot", driveStats?.frogpilot, state.unit)}
         </div>
 
         <h2>Disk Usage</h2>
