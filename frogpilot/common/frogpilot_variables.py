@@ -508,7 +508,7 @@ class FrogPilotVariables:
 
     short_branch = get_build_metadata().channel
     self.development_branch = short_branch == "FrogPilot-Development"
-    self.release_branch = short_branch == "FrogPilot"
+    self.release_branch = short_branch in ("FrogPilot", "hanpilot")
     self.staging_branch = short_branch == "FrogPilot-Staging"
     self.testing_branch = short_branch == "FrogPilot-Testing"
     self.vetting_branch = short_branch == "FrogPilot-Vetting"
