@@ -3,7 +3,6 @@ import glob
 import json
 import random
 import requests
-import shutil
 
 from datetime import date, timedelta
 from dateutil import easter
@@ -24,7 +23,6 @@ HOLIDAY_SLUGS = {
   "new_years": "New Year's",
   "valentines_day": "Valentine's Day",
   "st_patricks_day": "St. Patrick's Day",
-  "world_frog_day": "World Frog Day",
   "april_fools": "April Fools",
   "easter_week": "Easter",
   "may_the_fourth": "May the Fourth",
@@ -62,36 +60,12 @@ class ThemeManager:
     self.session.headers.update({"Accept-Language": "en"})
     self.session.headers.update({"User-Agent": "frogpilot-theme-downloader/1.0 (https://github.com/FrogAi/FrogPilot)"})
 
-    if boot_run:
-      self.copy_default_theme()
-
   @staticmethod
   def calculate_thanksgiving(year):
     november_first = date(year, 11, 1)
     days_to_thursday = (3 - november_first.weekday()) % 7
     first_thursday = november_first + timedelta(days=days_to_thursday)
     return first_thursday + timedelta(days=21)
-
-  @staticmethod
-  def copy_default_theme():
-    world_frog_day_theme_path = HOLIDAY_THEME_PATH / "world_frog_day"
-
-    for theme_subfolder_name, save_subfolder_path in [
-      ("colors", "theme_packs/frog/colors"),
-      ("distance_icons", "theme_packs/frog-animated/distance_icons"),
-      ("icons", "theme_packs/frog-animated/icons"),
-      ("signals", "theme_packs/frog/signals"),
-      ("sounds", "theme_packs/frog/sounds"),
-    ]:
-      source_folder_path = world_frog_day_theme_path / theme_subfolder_name
-      destination_folder_path = THEME_SAVE_PATH / save_subfolder_path
-      destination_folder_path.mkdir(parents=True, exist_ok=True)
-      shutil.copytree(source_folder_path, destination_folder_path, dirs_exist_ok=True)
-
-    steering_wheel_image_path = world_frog_day_theme_path / "steering_wheel/wheel.png"
-    steering_wheel_save_path = THEME_SAVE_PATH / "steering_wheels/frog.png"
-    steering_wheel_save_path.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(steering_wheel_image_path, steering_wheel_save_path)
 
   def download_theme(self, theme_component, theme_name, asset_param, frogpilot_toggles):
     self.downloading_theme = True
@@ -303,7 +277,6 @@ class ThemeManager:
       "new_years": date(year, 1, 1),
       "valentines_day": date(year, 2, 14),
       "st_patricks_day": date(year, 3, 17),
-      "world_frog_day": date(year, 3, 20),
       "april_fools": date(year, 4, 1),
       "easter_week": easter.easter(year),
       "may_the_fourth": date(year, 5, 4),

@@ -643,12 +643,12 @@ void FrogPilotDataPanel::updateStatsLabels(FrogPilotListWidget *labelsList) {
     {"Disengages", {tr("Total Disengagements"), "count"}},
     {"Engages", {tr("Total Engagements"), "count"}},
     {"ExperimentalModeTime", {tr("Time Using \"Experimental Mode\""), "timePercent"}},
-    {"FrogChirps", {tr("Total Frog Chirps"), "count"}},
-    {"FrogHops", {tr("Total Frog Hops"), "count"}},
+    {"FrogChirps", {tr("Total Chirps"), "count"}},
+    {"FrogHops", {tr("Total Hops"), "count"}},
     {"FrogPilotDrives", {tr("Total Drives"), "count"}},
     {"FrogPilotMeters", {tr("Total Distance Driven"), "distance"}},
     {"FrogPilotSeconds", {tr("Total Driving Time"), "time"}},
-    {"FrogSqueaks", {tr("Total Frog Squeaks"), "count"}},
+    {"FrogSqueaks", {tr("Total Squeaks"), "count"}},
     {"GoatScreams", {tr("Total Goat Screams"), "count"}},
     {"LateralTime", {tr("Time Using Lateral Control"), "timePercent"}},
     {"LongestDistanceWithoutOverride", {tr("Longest Distance Without an Override"), "distance"}},
@@ -678,7 +678,7 @@ void FrogPilotDataPanel::updateStatsLabels(FrogPilotListWidget *labelsList) {
     {"thisIsFineSteerSaturated", tr("This Is Fine Moments")},
     {"toBeContinued", tr("To Be Continued Moments")},
     {"vCruise69", tr("Noices")},
-    {"yourFrogTriedToKillMe", tr("Attempted Frog Murders")},
+    {"yourFrogTriedToKillMe", tr("\"Tried to Kill Me\" Moments")},
     {"youveGotMail", tr("Total Mail Received")}
   };
 

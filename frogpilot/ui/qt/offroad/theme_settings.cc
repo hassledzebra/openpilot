@@ -583,7 +583,7 @@ FrogPilotThemesPanel::FrogPilotThemesPanel(FrogPilotSettingsWindow *parent) : Fr
       downloadStatusLabel = new LabelControl(title, tr("Idle"));
       themeToggle = downloadStatusLabel;
     } else if (param == "StartupAlert") {
-      FrogPilotButtonsControl *startupAlertButton = new FrogPilotButtonsControl(title, desc, icon, {tr("STOCK"), tr("FROGPILOT"), tr("CUSTOM"), tr("CLEAR")}, true);
+      FrogPilotButtonsControl *startupAlertButton = new FrogPilotButtonsControl(title, desc, icon, {tr("STOCK"), tr("HANPILOT"), tr("CUSTOM"), tr("CLEAR")}, true);
 
       QString currentTop = QString::fromStdString(params.get("StartupMessageTop"));
       QString currentBottom = QString::fromStdString(params.get("StartupMessageBottom"));
@@ -591,8 +591,8 @@ FrogPilotThemesPanel::FrogPilotThemesPanel(FrogPilotSettingsWindow *parent) : Fr
       QString stockTop = "Be ready to take over at any time";
       QString stockBottom = "Always keep hands on wheel and eyes on road";
 
-      QString frogpilotTop = "Hop in and buckle up!";
-      QString frogpilotBottom = "Human-tested, frog-approved 🐸";
+      QString frogpilotTop = "Welcome to HanPilot!";
+      QString frogpilotBottom = "Hands on the wheel, eyes on the road";
 
       if (currentTop == stockTop && currentBottom == stockBottom) {
         startupAlertButton->setCheckedButton(0);
