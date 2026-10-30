@@ -718,7 +718,7 @@ class FrogPilotVariables:
 
     toggle.custom_alerts = params.get_bool("CustomAlerts") if toggle.tuning_level >= level["CustomAlerts"] else default.get_bool("CustomAlerts")
     toggle.goat_scream_alert = toggle.custom_alerts and (params.get_bool("GoatScream") if toggle.tuning_level >= level["GoatScream"] else default.get_bool("GoatScream"))
-    toggle.green_light_alert = toggle.custom_alerts and (params.get_bool("GreenLightAlert") if toggle.tuning_level >= level["GreenLightAlert"] else default.get_bool("GreenLightAlert"))
+    toggle.green_light_alert = True  # HanPilot: always on (alert only)
     toggle.lead_departing_alert = toggle.custom_alerts and (params.get_bool("LeadDepartingAlert") if toggle.tuning_level >= level["LeadDepartingAlert"] else default.get_bool("LeadDepartingAlert"))
     toggle.loud_blindspot_alert = has_bsm and toggle.custom_alerts and (params.get_bool("LoudBlindspotAlert") if toggle.tuning_level >= level["LoudBlindspotAlert"] else default.get_bool("LoudBlindspotAlert"))
     toggle.speed_limit_changed_alert = toggle.custom_alerts and (params.get_bool("SpeedLimitChangedAlert") if toggle.tuning_level >= level["SpeedLimitChangedAlert"] else default.get_bool("SpeedLimitChangedAlert"))
@@ -785,8 +785,8 @@ class FrogPilotVariables:
     developer_widgets = toggle.developer_ui and params.get_bool("DeveloperWidgets") if toggle.tuning_level >= level["DeveloperWidgets"] else default.get_bool("DeveloperWidgets")
     toggle.adjacent_lead_tracking = toggle.has_radar and ((developer_widgets and params.get_bool("AdjacentLeadsUI") if toggle.tuning_level >= level["AdjacentLeadsUI"] else default.get_bool("AdjacentLeadsUI")) or toggle.debug_mode)
     toggle.radar_tracks = toggle.has_radar and ((developer_widgets and params.get_bool("RadarTracksUI") if toggle.tuning_level >= level["RadarTracksUI"] else default.get_bool("RadarTracksUI")) or toggle.debug_mode)
-    toggle.show_stopping_point = toggle.openpilot_longitudinal and (developer_widgets and (params.get_bool("ShowStoppingPoint") if toggle.tuning_level >= level["ShowStoppingPoint"] else default.get_bool("ShowStoppingPoint")) or toggle.debug_mode)
-    toggle.show_stopping_point_metrics = toggle.show_stopping_point and (params.get_bool("ShowStoppingPointMetrics") if toggle.tuning_level >= level["ShowStoppingPointMetrics"] else default.get_bool("ShowStoppingPointMetrics") or toggle.debug_mode)
+    toggle.show_stopping_point = toggle.openpilot_longitudinal  # HanPilot: always on (display only)
+    toggle.show_stopping_point_metrics = toggle.show_stopping_point
 
     device_management = params.get_bool("DeviceManagement") if toggle.tuning_level >= level["DeviceManagement"] else default.get_bool("DeviceManagement")
     device_shutdown_setting = params.get_int("DeviceShutdown") if device_management and toggle.tuning_level >= level["DeviceShutdown"] else default.get_int("DeviceShutdown")

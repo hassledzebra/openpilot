@@ -81,6 +81,7 @@ struct FrogPilotCarEvent @0x81c2f05a394cf4af {
     trafficModeInactive @14;
     turningLeft @15;
     turningRight @16;
+    sharpTurn @29;
 
     # Random Events
     accel30 @17;
