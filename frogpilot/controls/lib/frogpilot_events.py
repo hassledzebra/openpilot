@@ -17,6 +17,14 @@ SHARP_TURN_LAT_ACCEL_ON, SHARP_TURN_LAT_ACCEL_OFF = 1.5, 1.0  # m/s^2
 SHARP_TURN_CURVATURE_ON, SHARP_TURN_CURVATURE_OFF = 0.05, 0.035  # 1/m
 SHARP_TURN_MIN_SPEED = 2.0  # m/s
 
+# HanPilot: factory camera sign codes (see selfdrive/car/toyota/carstate.py) to alerts
+TRAFFIC_SIGN_EVENTS = {
+  97: FrogPilotEventName.stopSign,
+  105: FrogPilotEventName.yieldSign,
+  129: FrogPilotEventName.doNotEnterSign,
+  81: FrogPilotEventName.noRightTurnSign,
+}
+
 class FrogPilotEvents:
   def __init__(self, FrogPilotPlanner, error_log, ThemeManager):
     self.frogpilot_planner = FrogPilotPlanner
@@ -28,6 +36,7 @@ class FrogPilotEvents:
 
     self.always_on_lateral_enabled_previously = False
     self.previous_traffic_mode = False
+    self.previous_traffic_sign = 0
     self.random_event_playing = False
     self.sharp_turn = False
     self.startup_seen = False
@@ -235,6 +244,11 @@ class FrogPilotEvents:
       self.sharp_turn = False
     if self.sharp_turn:
       self.events.add(FrogPilotEventName.sharpTurn)
+
+    traffic_sign = sm["frogpilotCarState"].trafficSign
+    if traffic_sign != self.previous_traffic_sign and traffic_sign in TRAFFIC_SIGN_EVENTS:
+      self.events.add(TRAFFIC_SIGN_EVENTS[traffic_sign])
+    self.previous_traffic_sign = traffic_sign
 
     if sm["frogpilotModelV2"].turnDirection == TurnDirection.turnLeft:
       self.events.add(FrogPilotEventName.turningLeft)

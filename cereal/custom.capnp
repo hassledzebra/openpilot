@@ -82,6 +82,10 @@ struct FrogPilotCarEvent @0x81c2f05a394cf4af {
     turningLeft @15;
     turningRight @16;
     sharpTurn @29;
+    stopSign @30;
+    yieldSign @31;
+    doNotEnterSign @32;
+    noRightTurnSign @33;
 
     # Random Events
     accel30 @17;
@@ -129,6 +133,7 @@ struct FrogPilotCarState @0xda96579883444c35 {
   pauseLongitudinal @13 :Bool;
   sportGear @14 :Bool;
   trafficModeEnabled @15 :Bool;
+  trafficSign @16 :UInt8;
 
   struct ButtonEvent {
     enum Type {

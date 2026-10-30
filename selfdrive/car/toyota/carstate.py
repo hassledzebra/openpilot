@@ -38,6 +38,18 @@ def calculate_speed_limit(cp_cam, frogpilot_toggles):
     return 0
 
 
+# HanPilot: sign types reported by the factory camera's Road Sign Assist (RSA2 TSGN3/TSGN4), display only
+TRAFFIC_SIGN_CODES = {97: 97, 113: 97, 105: 105, 114: 105, 129: 129, 138: 129, 145: 129, 81: 81}
+
+def calculate_traffic_sign(cp_cam):
+  rsa2 = cp_cam.vl["RSA2"]
+  for signal in ("TSGN3", "TSGN4"):
+    sign = TRAFFIC_SIGN_CODES.get(int(rsa2.get(signal, 0)), 0)
+    if sign:
+      return sign
+  return 0
+
+
 class CarState(CarStateBase):
   def __init__(self, CP, FPCP):
     super().__init__(CP, FPCP)
@@ -221,6 +233,7 @@ class CarState(CarStateBase):
     self.cruise_increased = self.pcm_acc_status == 9
 
     fp_ret.dashboardSpeedLimit = calculate_speed_limit(cp_cam, frogpilot_toggles)
+    fp_ret.trafficSign = calculate_traffic_sign(cp_cam)
 
     if not self.CP.flags & ToyotaFlags.SECOC.value:
       fp_ret.ecoGear = cp.vl["GEAR_PACKET"]["ECON_ON"] == 1

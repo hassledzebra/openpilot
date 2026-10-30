@@ -197,6 +197,16 @@ def setup_frogpilot(build_metadata):
     run_cmd(["sudo", "mount", "-o", "remount,rw", "/persist"], "Successfully remounted /persist as read-write", "Failed to remount /persist")
     run_cmd(["sudo", "python3", "/persist/frogsgomoo.py"], "Ran frogsgomoo.py", "Failed to run frogsgomoo.py")
 
+  # HanPilot: one-time defaults on existing installs; the settings can still change them afterwards
+  hanpilot_defaults = Path("/data/hanpilot_defaults_v1")
+  if not hanpilot_defaults.is_file():
+    params.put_bool("QOLLateral", True)
+    params.put_bool("PauseLateralOnSignal", True)
+    if (params.get_int("PauseLateralSpeed") or 0) == 0:
+      params.put_int("PauseLateralSpeed", 32 if params.get_bool("IsMetric") else 20)
+    params.put_bool("CurveSpeedController", True)
+    hanpilot_defaults.touch()
+
   # HanPilot: FrogPilot device registration (hardware serial, IMEI, dongle id to frogpilot.com) removed
 
 

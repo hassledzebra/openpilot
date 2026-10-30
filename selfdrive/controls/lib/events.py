@@ -1176,6 +1176,38 @@ FROGPILOT_EVENTS: dict[int, dict[str, Alert | AlertCallbackType]] = {
       Priority.LOWER, VisualAlert.none, AudibleAlert.prompt, .1),
   },
 
+  FrogPilotEventName.stopSign: {
+    ET.PERMANENT: Alert(
+      "Stop sign (car camera)",
+      "",
+      AlertStatus.normal, AlertSize.small,
+      Priority.LOWER, VisualAlert.none, AudibleAlert.prompt, 4.),
+  },
+
+  FrogPilotEventName.yieldSign: {
+    ET.PERMANENT: Alert(
+      "Yield sign (car camera)",
+      "",
+      AlertStatus.normal, AlertSize.small,
+      Priority.LOWER, VisualAlert.none, AudibleAlert.prompt, 4.),
+  },
+
+  FrogPilotEventName.doNotEnterSign: {
+    ET.PERMANENT: Alert(
+      "Do Not Enter sign (car camera)",
+      "",
+      AlertStatus.normal, AlertSize.small,
+      Priority.LOWER, VisualAlert.none, AudibleAlert.prompt, 4.),
+  },
+
+  FrogPilotEventName.noRightTurnSign: {
+    ET.PERMANENT: Alert(
+      "No Right Turn sign (car camera)",
+      "",
+      AlertStatus.normal, AlertSize.small,
+      Priority.LOWER, VisualAlert.none, AudibleAlert.prompt, 4.),
+  },
+
   # Random Events
   FrogPilotEventName.accel30: {
     ET.WARNING: Alert(

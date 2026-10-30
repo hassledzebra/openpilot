@@ -357,8 +357,8 @@ frogpilot_default_params: list[tuple[str, str | bytes, int, str]] = [
   ("PathEdgeWidth", "20", 2, "0"),
   ("PathWidth", "6.1", 2, "5.9"),
   ("PauseAOLOnBrake", "0", 1, "0"),
-  ("PauseLateralOnSignal", "0", 1, "0"),
-  ("PauseLateralSpeed", "0", 1, "0"),
+  ("PauseLateralOnSignal", "1", 1, "0"),  # HanPilot: on
+  ("PauseLateralSpeed", "20", 1, "0"),  # HanPilot: 20 mph
   ("PedalsOnUI", "0", 1, "0"),
   ("PersonalizeOpenpilot", "1", 0, "0"),
   ("PreferredSchedule", "2", 0, "0"),
